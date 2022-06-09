@@ -1,0 +1,28 @@
+:host{
+    .home{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        form{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-evenly;
+            width: 400px;
+            height: 400px;
+            box-shadow: -5px 5px 5px 1px rgb(231, 231, 231);
+            border: 1px solid rgb(238, 238, 238);
+            border-radius: 10px;
+            input{
+                all:unset;
+                width: 300px;
+                padding: 15px 25px;
+                border: 1px solid rgb(206, 206, 206);
+                &:focus{
+                    outline: 1px solid rgb(134, 134, 134);
+                }
+            }
+        }
+    }
+}

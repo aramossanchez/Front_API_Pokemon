@@ -1,0 +1,21 @@
+:host{
+    nav{
+        height: 5vh;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-end;
+        a{
+            all: unset;
+            cursor: pointer;
+            margin: 0 40px;
+            padding: 5px 10px;
+            border-radius: 20px;
+            transition: 0.5s;
+            &.active, &:hover{
+                background-color: var(--main);
+                color: var(--aux);
+            }
+        }
+    }
+}
