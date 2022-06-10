@@ -7,13 +7,17 @@
         justify-content: flex-end;
         a{
             all: unset;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
             cursor: pointer;
-            margin: 0 40px;
-            padding: 5px 10px;
-            border-radius: 20px;
-            transition: 0.5s;
+            padding: 0 40px;
+            margin: 0 2px;
+            height: 5vh;
+            transition: 0.5s;   
             &.active, &:hover{
-                background-color: var(--main);
+                background-color: var(--aux2);
                 color: var(--aux);
             }
         }

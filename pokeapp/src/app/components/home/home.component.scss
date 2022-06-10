@@ -4,6 +4,9 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
+        background-image: url(../../../assets/img/background.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
         form{
             display: flex;
             flex-direction: column;
@@ -11,7 +14,7 @@
             justify-content: space-evenly;
             width: 400px;
             height: 400px;
-            box-shadow: -5px 5px 5px 1px rgb(231, 231, 231);
+            box-shadow: -2px 2px 5px 1px rgba(34, 34, 34, 0.384);
             border: 1px solid rgb(238, 238, 238);
             border-radius: 10px;
             input{
@@ -20,7 +23,21 @@
                 padding: 15px 25px;
                 border: 1px solid rgb(206, 206, 206);
                 &:focus{
-                    outline: 1px solid rgb(134, 134, 134);
+                    outline: 2px solid rgb(134, 134, 134);
+                    background-color: rgb(244, 244, 244);
+                }
+            }
+            button {
+                all:unset;
+                font-size: 20px;
+                cursor: pointer;
+                padding: 10px 25px;
+                border-radius: 10px;
+                background-color: var(--aux2);
+                color: var(--aux);
+                transition: 0.3s;
+                &:hover{
+                    filter: brightness(1.5);
                 }
             }
         }
