@@ -1,6 +1,3 @@
 <div class="pokemon_list main_screen">
-    <div class="pokemon_listed" *ngFor="let pokemon of pokemonList">
-        <app-pokemon-listed></app-pokemon-listed>
-        {{pokemon.name}}
-    </div>
+    <app-pokemon-listed *ngFor="let pokemon of pokemonList" [pokemon]="pokemon"></app-pokemon-listed>
 </div>

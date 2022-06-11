@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PokemonListed } from 'src/app/models/pokemonlisted.model';
 import { PokemonService } from 'src/app/services/pokemon.service';
+import { Pokemon } from 'src/app/models/pokemon.model';
 
 @Component({
   selector: 'app-pokemon-list',
@@ -16,7 +17,7 @@ export class PokemonListComponent implements OnInit {
   ngOnInit(): void {
     this.pokemonservice.getPokemonList().subscribe(
       (res) => {
-        console.log(res); this.pokemonList = res.results;
+        this.pokemonList = res.results;
       },
       (error) => {
         console.error(error);
