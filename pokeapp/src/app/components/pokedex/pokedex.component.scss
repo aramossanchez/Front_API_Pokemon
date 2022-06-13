@@ -1,0 +1,67 @@
+:host{
+    .container_pokedex{
+        position: fixed;
+        top: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 4;
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        .pokedex{
+            width: 1000px;
+            height: 700px;
+            position: relative;
+            animation-name: appear;
+            animation-duration: 0.5s;
+            animation-iteration-count: initial;
+            top: 0;
+            @keyframes appear {
+                0% { 
+                    top:100vh;
+                }
+                100%{
+                    top:0;
+                }
+            }
+            .pokedex_top{
+                position: absolute;
+                top: 0;
+                left: 0;
+                background-color: rgb(228, 0, 0);
+                width: 545px;
+                height: 150px;
+                clip-path: polygon(0% 0%, 37% 0%, 100% 0%, 100% 50%, 55.7% 50%, 43.7% 100%, 0% 100%);
+            }
+            .pokedex_left{
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                background-color: rgb(228, 0, 0);
+                width: 455px;
+                height: 625px;
+                clip-path: polygon(0% 12.2%, 52.7% 12.2%, 67% 0%, 100% 0%, 100% 100%, 31.2% 100%, 0% 100%);
+            }
+            .pokedex_center{
+                position: absolute;
+                bottom: 0;
+                left: 455px;
+                background-color: rgb(228, 0, 0);
+                width: 89.5px;
+                height: 625px;
+            }
+            .pokedex_right{
+                position: absolute;
+                bottom: 0;
+                right: 0;
+                background-color: rgb(228, 0, 0);
+                width: 455px;
+                height: 625px;
+                clip-path: polygon(38.7% 0%, 52.7% 12.2%, 100% 12.2%, 100% 100%, 50% 100%, 0% 100%, 0% 0%);
+            }
+        }
+    }
+}

@@ -9,6 +9,7 @@ import { NavMenuComponent } from './components/nav-menu/nav-menu.component';
 import { PokemonListComponent } from './components/pokemon-list/pokemon-list.component';
 import { PokemonService } from './services/pokemon.service';
 import { PokemonListedComponent } from './components/pokemon-listed/pokemon-listed.component';
+import { PokedexComponent } from './components/pokedex/pokedex.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { PokemonListedComponent } from './components/pokemon-listed/pokemon-list
     HomeComponent,
     NavMenuComponent,
     PokemonListComponent,
-    PokemonListedComponent
+    PokemonListedComponent,
+    PokedexComponent
   ],
   imports: [
     BrowserModule,

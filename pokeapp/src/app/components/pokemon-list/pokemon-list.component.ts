@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PokemonListed } from 'src/app/models/pokemonlisted.model';
 import { PokemonService } from 'src/app/services/pokemon.service';
-import { Pokemon } from 'src/app/models/pokemon.model';
 
 @Component({
   selector: 'app-pokemon-list',
@@ -11,6 +10,8 @@ import { Pokemon } from 'src/app/models/pokemon.model';
 export class PokemonListComponent implements OnInit {
 
   pokemonList?:PokemonListed[];
+
+  pokemonSelected: boolean = false;
 
   constructor(private pokemonservice: PokemonService) { }
 
@@ -23,6 +24,12 @@ export class PokemonListComponent implements OnInit {
         console.error(error);
       }
     )
+  }
+
+  selectionPokemon(pokemon:PokemonListed) {
+    this.pokemonSelected = true;
+    console.log(pokemon);
+
   }
 
 }
