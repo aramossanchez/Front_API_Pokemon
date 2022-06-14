@@ -1,4 +1,5 @@
 <div class="pokemon_list main_screen">
     <app-pokemon-listed *ngFor="let pokemon of pokemonList" [pokemon]="pokemon" (click)="selectionPokemon(pokemon)"></app-pokemon-listed>
-    <app-pokedex *ngIf="pokemonSelected"></app-pokedex>
+    <!-- <app-pokedex *ngIf="pokemonSelected"></app-pokedex> -->
+    <app-pokedex></app-pokedex>
 </div>

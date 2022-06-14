@@ -27,23 +27,185 @@
                     top:0;
                 }
             }
-            .pokedex_top{
+            .pokedex_top_container{
                 position: absolute;
                 top: 0;
                 left: 0;
-                background-color: rgb(228, 0, 0);
+                background-color: rgb(0, 0, 0);
                 width: 545px;
                 height: 150px;
-                clip-path: polygon(0% 0%, 37% 0%, 100% 0%, 100% 50%, 55.7% 50%, 43.7% 100%, 0% 100%);
+                clip-path: polygon(0% 0%, 37% 0%, 100% 0%, 100% 50.3%, 56% 50.3%, 44.5% 100%, 0% 100%);
+                display: flex;
+                flex-direction: column;
+                .pokedex_top{
+                    position: relative;
+                    top: 1.5%;
+                    left: 0.6%;
+                    width: 99%;
+                    height: 97%;
+                    background-color: rgb(228, 0, 0);
+                    clip-path: polygon(0% 0%, 37% 0%, 100% 0%, 100% 50.3%, 56% 50.3%, 44.5% 100%, 0% 100%);
+                    .big_circle_container{
+                        position: relative;
+                        top: 20px;
+                        left: 30px;
+                        width: 100px;
+                        height: 100px;
+                        border-radius: 50em;
+                        border: 1px solid black;
+                        background-color: white;
+                        .big_circle_blue{
+                            position: relative;
+                            top: 8%;
+                            left: 8%;
+                            background-color: rgb(118, 193, 255);
+                            width: 82%;
+                            height: 82%;
+                            border-radius: 50em;
+                            border: 1px solid black;
+                            .big_circle_shadow{
+                                position: absolute;
+                                bottom: 0;
+                                right: 0;
+                                background-color: rgb(0, 140, 255);
+                                border-radius: 50em;
+                                width: 90%;
+                                height: 90%;
+                                .big_circle_light{
+                                    position: relative;
+                                    top: 9%;
+                                    left: 9%;
+                                    width: 35%;
+                                    height: 35%;
+                                    background-color: rgb(118, 193, 255);
+                                    border-radius: 50em;
+                                    .big_circle_light_white{
+                                        position: absolute;
+                                        background-color: white;
+                                        width: 35%;
+                                        height: 35%;
+                                        border-radius: 50em;
+                                        top: 15%;
+                                        left: 15%;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .three_lights_container{
+                        position: absolute;
+                        top: 20px;
+                        left: 160px;
+                        width: 110px;
+                        height: 15px;
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: space-between;
+                        .circle_light{
+                            position: relative;
+                            border-radius: 50em;
+                            width: 15px;
+                            min-height: 15px;
+                            border: 1px solid black;
+                            .circle_light_shadow{
+                                position: absolute;
+                                bottom: 0;
+                                right: 0;
+                                width: 82%;
+                                height: 82%;
+                                background-color: rgba(0, 0, 0, 0.514);
+                                border-radius: 50em;
+                                .circle_light_light{
+                                    position: absolute;
+                                    width: 25%;
+                                    height: 25%;
+                                    background-color: white;
+                                    border-radius: 50em;
+                                    top: 1.8px;
+                                    left: 1.8px;
+                                }
+                            }
+                        }
+                        .circle_light_red{
+                            background-color: rgb(218, 0, 0);
+                            animation-name: turnOnLightRed;
+                            animation-duration: 10s;
+                            animation-iteration-count: infinite;
+                            @keyframes turnOnLightRed {
+                                0% { 
+                                    background-color: rgb(218, 0, 0);
+                                }
+                                80%{
+                                    background-color: rgb(218, 0, 0);
+                                }
+                                85%{
+                                    background-color: rgb(255, 0, 0);
+                                }
+                                90%{
+                                    background-color: rgb(218, 0, 0);
+                                }
+                                95%{
+                                    background-color: rgb(255, 0, 0);
+                                }
+                                100%{
+                                    background-color: rgb(218, 0, 0);
+                                }
+                            }
+                        }
+                        .circle_light_yellow{
+                            background-color: rgb(219, 219, 2);
+                            animation-name: turnOnLightYellow;
+                            animation-duration: 1s;
+                            animation-iteration-count: infinite;
+                            @keyframes turnOnLightYellow {
+                                0% { 
+                                    background-color: rgb(219, 219, 2);
+                                }
+                                50%{
+                                    background-color: rgb(251, 255, 0);
+                                }
+                                100%{
+                                    background-color: rgb(219, 219, 2);
+                                }
+                            }
+                        }
+                        .circle_light_green{
+                            background-color: green;
+                            animation-name: turnOnLightGreen;
+                            animation-duration: 5s;
+                            animation-iteration-count: infinite;
+                            @keyframes turnOnLightGreen {
+                                0% { 
+                                    background-color: green;
+                                }
+                                80%{
+                                    background-color: rgb(153, 255, 153);
+                                }
+                                100%{
+                                    background-color: green;
+                                }
+                            }
+                        }
+                    }
+                }
             }
-            .pokedex_left{
+            .pokedex_left_container{
                 position: absolute;
                 bottom: 0;
                 left: 0;
-                background-color: rgb(228, 0, 0);
+                background-color: rgb(0, 0, 0);
                 width: 455px;
                 height: 625px;
-                clip-path: polygon(0% 12.2%, 52.7% 12.2%, 67% 0%, 100% 0%, 100% 100%, 31.2% 100%, 0% 100%);
+                clip-path: polygon(0% 11.9%, 52.7% 11.9%, 67% 0%, 100% 0%, 100% 100%, 31.2% 100%, 0% 100%);
+                .pokedex_left{
+                    background-color: rgb(228, 0, 0);
+                    position: relative;
+                    top: 0.5%;
+                    left: 0.8%;
+                    width: 99%;
+                    height: 99%;
+                    clip-path: polygon(0% 11.9%, 52.7% 11.9%, 67% 0%, 100% 0%, 100% 100%, 31.2% 100%, 0% 100%);
+                }
             }
             .pokedex_center{
                 position: absolute;
