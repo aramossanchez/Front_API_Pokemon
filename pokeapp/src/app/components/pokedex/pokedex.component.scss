@@ -39,8 +39,8 @@
                 flex-direction: column;
                 .pokedex_top{
                     position: relative;
-                    top: 1.5%;
-                    left: 0.6%;
+                    top: 3%;
+                    left: 0.4%;
                     width: 99%;
                     height: 97%;
                     background-color: rgb(228, 0, 0);
@@ -200,29 +200,46 @@
                 .pokedex_left{
                     background-color: rgb(228, 0, 0);
                     position: relative;
-                    top: 0.5%;
-                    left: 0.8%;
+                    top: 1%;
+                    left: 0.5%;
                     width: 99%;
-                    height: 99%;
+                    height: 98%;
                     clip-path: polygon(0% 11.9%, 52.7% 11.9%, 67% 0%, 100% 0%, 100% 100%, 31.2% 100%, 0% 100%);
                 }
             }
-            .pokedex_center{
+            .pokedex_center_container{
                 position: absolute;
                 bottom: 0;
                 left: 455px;
-                background-color: rgb(228, 0, 0);
+                background-color: rgb(0, 0, 0);
                 width: 89.5px;
                 height: 625px;
+                .pokedex_center{
+                    position: relative;
+                    top: 1%;
+                    left: 0.6%;
+                    width: 99%;
+                    height: 98%;
+                    background-color: rgb(228, 0, 0);
+                }
             }
-            .pokedex_right{
+            .pokedex_right_container{
                 position: absolute;
                 bottom: 0;
                 right: 0;
-                background-color: rgb(228, 0, 0);
+                background-color: rgb(0, 0, 0);
                 width: 455px;
                 height: 625px;
                 clip-path: polygon(38.7% 0%, 52.7% 12.2%, 100% 12.2%, 100% 100%, 50% 100%, 0% 100%, 0% 0%);
+                .pokedex_right{
+                    position: relative;
+                    top: 1%;
+                    left: 0.5%;
+                    width: 99%;
+                    height: 98%;
+                    clip-path: polygon(38.7% 0%, 52.7% 12.2%, 100% 12.2%, 100% 100%, 50% 100%, 0% 100%, 0% 0%);
+                    background-color: rgb(228, 0, 0);
+                }
             }
         }
     }

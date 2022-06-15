@@ -13,6 +13,8 @@ export class PokemonListComponent implements OnInit {
 
   pokemonSelected: boolean = false;
 
+  pokemon!: PokemonListed;
+
   constructor(private pokemonservice: PokemonService) { }
 
   ngOnInit(): void {
@@ -28,8 +30,7 @@ export class PokemonListComponent implements OnInit {
 
   selectionPokemon(pokemon:PokemonListed) {
     this.pokemonSelected = true;
-    console.log(pokemon);
-
+    this.pokemon = pokemon;
   }
 
 }
