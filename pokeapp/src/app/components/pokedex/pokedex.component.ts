@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { Pokemon } from 'src/app/models/pokemon.model';
 import { PokemonListed } from 'src/app/models/pokemonlisted.model';
 import { PokemonService } from 'src/app/services/pokemon.service';
@@ -12,6 +12,10 @@ export class PokedexComponent implements OnInit {
 
   @Input()
   pokemonSelected!:PokemonListed;
+  @Input()
+  pokedexOpen!: boolean;
+  @Output()
+  sendPokedexStatus = new EventEmitter<boolean>()
 
   pokemonPokedex!: Pokemon;
 
@@ -26,6 +30,13 @@ export class PokedexComponent implements OnInit {
         console.error(error);
       }
     )
+  }
+
+  closePokedex(e:any){
+    if(e.target?.className === 'container_pokedex'){
+      this.pokedexOpen = !this.pokedexOpen;
+      this.sendPokedexStatus.emit(this.pokedexOpen);
+    }
   }
 
 }

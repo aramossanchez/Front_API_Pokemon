@@ -11,7 +11,7 @@ export class PokemonListComponent implements OnInit {
 
   pokemonList?:PokemonListed[];
 
-  pokemonSelected: boolean = false;
+  pokedexStatus: boolean = false;
 
   pokemon!: PokemonListed;
 
@@ -29,8 +29,12 @@ export class PokemonListComponent implements OnInit {
   }
 
   selectionPokemon(pokemon:PokemonListed) {
-    this.pokemonSelected = true;
+    this.pokedexStatus = true;
     this.pokemon = pokemon;
+  }
+
+  changeStatusPokedex(e:any){
+    this.pokedexStatus = e;
   }
 
 }

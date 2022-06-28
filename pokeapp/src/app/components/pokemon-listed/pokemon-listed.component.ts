@@ -31,5 +31,5 @@ export class PokemonListedComponent implements OnInit {
   convert(unit:any) {
     return unit/10;
   }
-
+  
 }
