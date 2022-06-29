@@ -20,7 +20,12 @@ export class PokemonListedComponent implements OnInit {
   ngOnInit(): void {
     this.pokemonservice.getPokemonByName(this.pokemon.name).subscribe(
       (res) =>{
+        //OBTENGO POKEMON CON TODOS LOS DETALLES
         this.pokemonListed = (res);
+        //OBTENGO TIPOS DEL POKEMON BUSCADO
+        res.types.map((type) => {
+          this.pokemonservice.setPokemonTypes(type.type.name);
+        })
       },
       (error) => {
         console.error(error);

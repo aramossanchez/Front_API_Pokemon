@@ -1,0 +1,17 @@
+
+<div class="main_screen">
+    <div class="filters">
+        <mat-form-field appearance="fill" (click)="setPokemonTypes()">
+            <mat-label>Filter by TYPE</mat-label>
+            <mat-select>
+                <mat-option *ngFor="let type of pokemonTypes" [value]="type">
+                    {{type | uppercase}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+    <div class="pokemon_list"> 
+        <app-pokemon-listed *ngFor="let pokemon of pokemonList" [pokemon]="pokemon" (click)="selectionPokemon(pokemon)"></app-pokemon-listed>
+    </div>
+    <app-pokedex *ngIf="pokedexStatus" [pokemonSelected]="pokemon" [pokedexOpen]="pokedexStatus" (sendPokedexStatus)="changeStatusPokedex($event)"></app-pokedex>
+</div>

@@ -15,12 +15,15 @@ export class PokemonListComponent implements OnInit {
 
   pokemon!: PokemonListed;
 
+  pokemonTypes: string[] = [];
+
   constructor(private pokemonservice: PokemonService) { }
 
   ngOnInit(): void {
     this.pokemonservice.getPokemonList().subscribe(
       (res) => {
         this.pokemonList = res.results;
+        this.pokemonservice.setTotalPokemon(res.results.length);
       },
       (error) => {
         console.error(error);
@@ -35,6 +38,12 @@ export class PokemonListComponent implements OnInit {
 
   changeStatusPokedex(e:any){
     this.pokedexStatus = e;
+  }
+
+  setPokemonTypes() {
+    if(this.pokemonTypes.length === 0){
+      this.pokemonTypes = this.pokemonservice.pokemonTypes;
+    }
   }
 
 }

@@ -9,6 +9,9 @@ import { Pokemon } from '../models/pokemon.model';
 })
 export class PokemonService {
 
+  pokemonTypes : string[] = [];
+  totalPokemon = 0;
+
   constructor(private http: HttpClient) { }
 
   getPokemonList(): Observable<PokemonListResponse> {
@@ -17,5 +20,15 @@ export class PokemonService {
 
   getPokemonByName(name:string) : Observable<Pokemon> {
     return this.http.get<Pokemon>(`https://pokeapi.co/api/v2/pokemon/${name}`);
+  }
+
+  setPokemonTypes(type:string) {
+    if (!this.pokemonTypes.find(item => item === type)) {
+      this.pokemonTypes.push(type);
+    }
+  }
+
+  setTotalPokemon(number:number) {
+    this.totalPokemon = number;
   }
 }
