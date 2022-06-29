@@ -12,6 +12,7 @@ import { PokemonListedComponent } from './components/pokemon-listed/pokemon-list
 import { PokedexComponent } from './components/pokedex/pokedex.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatSelectModule} from '@angular/material/select';
+import { SpinnerComponent } from './components/spinner/spinner.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import {MatSelectModule} from '@angular/material/select';
     NavMenuComponent,
     PokemonListComponent,
     PokemonListedComponent,
-    PokedexComponent
+    PokedexComponent,
+    SpinnerComponent
   ],
   imports: [
     BrowserModule,
