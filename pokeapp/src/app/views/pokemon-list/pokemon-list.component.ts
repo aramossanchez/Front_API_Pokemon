@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { PokemonListed } from 'src/app/models/pokemonlisted.model';
 import { PokemonService } from 'src/app/services/pokemon.service';
 
@@ -9,17 +9,24 @@ import { PokemonService } from 'src/app/services/pokemon.service';
 })
 export class PokemonListComponent implements OnInit {
 
+  
   pokemonList?:PokemonListed[];
-
+  
   pokedexStatus: boolean = false;
-
+  
   pokemon!: PokemonListed;
-
+  
   pokemonTypes: string[] = [];
-
+  
+  numberPokemonLoaded = 0
+  
   constructor(private pokemonservice: PokemonService) { }
 
   ngOnInit(): void {
+
+    this.pokemonservice.pokemonCount = 0;
+    this.numberPokemonLoaded = 0;
+
     this.pokemonservice.getPokemonList().subscribe(
       (res) => {
         this.pokemonList = res.results;
@@ -36,7 +43,7 @@ export class PokemonListComponent implements OnInit {
     this.pokemon = pokemon;
   }
 
-  changeStatusPokedex(e:any){
+  changeStatusPokedex(e:any) {
     this.pokedexStatus = e;
   }
 
@@ -44,6 +51,15 @@ export class PokemonListComponent implements OnInit {
     if(this.pokemonTypes.length === 0){
       this.pokemonTypes = this.pokemonservice.pokemonTypes;
     }
+  }
+
+  getNumberPokemonLoaded() {
+    this.numberPokemonLoaded = this.pokemonservice.pokemonCount;
+  }
+
+  paintNumberPokemonLoaded() {
+    this.getNumberPokemonLoaded();
+    return this.numberPokemonLoaded
   }
 
 }

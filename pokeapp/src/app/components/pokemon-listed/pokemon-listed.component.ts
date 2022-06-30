@@ -22,6 +22,8 @@ export class PokemonListedComponent implements OnInit {
       (res) =>{
         //OBTENGO POKEMON CON TODOS LOS DETALLES
         this.pokemonListed = (res);
+        //SUMO 1 A LA CUENTA DE POKEMONS LISTADOS
+        this.pokemonservice.increasePokemonCount();
         //OBTENGO TIPOS DEL POKEMON BUSCADO
         res.types.map((type) => {
           this.pokemonservice.setPokemonTypes(type.type.name);

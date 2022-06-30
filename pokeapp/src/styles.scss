@@ -3,6 +3,7 @@
     --main: rgb(24, 24, 24);
     --secondary: rgb(250, 250, 250);
     --aux: rgb(251, 255, 0);
+    --aux-trans: rgba(251, 255, 0, 0.623);
     --aux2: rgb(37, 113, 255);
 }
 *{
@@ -18,4 +19,7 @@
 .main_screen_little{
     height: 85vh;
     overflow-y: auto;
+}
+.hide{
+    display: none;
 }

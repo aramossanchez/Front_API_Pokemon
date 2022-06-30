@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { from, Observable } from 'rxjs';
 import { PokemonListResponse } from '../models/pokemonlist-response.interface';
 import { Pokemon } from '../models/pokemon.model';
 
@@ -11,6 +11,8 @@ export class PokemonService {
 
   pokemonTypes : string[] = [];
   totalPokemon = 0;
+  pokemonCount = 0;
+  
 
   constructor(private http: HttpClient) { }
 
@@ -30,5 +32,9 @@ export class PokemonService {
 
   setTotalPokemon(number:number) {
     this.totalPokemon = number;
+  }
+
+  increasePokemonCount() {
+    this.pokemonCount ++;
   }
 }
