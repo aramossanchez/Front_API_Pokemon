@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { from, Observable } from 'rxjs';
 import { PokemonListResponse } from '../models/pokemonlist-response.interface';
 import { Pokemon } from '../models/pokemon.model';
+import { PokemonListed } from 'src/app/models/pokemonlisted.model';
 
 @Injectable({
   providedIn: 'root'
@@ -17,11 +18,17 @@ export class PokemonService {
   constructor(private http: HttpClient) { }
 
   getPokemonList(): Observable<PokemonListResponse> {
+    this.pokemonCount = 0;
     return this.http.get<PokemonListResponse>('https://pokeapi.co/api/v2/pokemon/?limit=151&offset=0%22');
   }
 
   getPokemonByName(name:string) : Observable<Pokemon> {
     return this.http.get<Pokemon>(`https://pokeapi.co/api/v2/pokemon/${name}`);
+  }
+
+  getPokemonByType(type:string) : Observable<any> {
+    this.pokemonCount = 0;
+    return this.http.get<any>(`https://pokeapi.co/api/v2/type/${type}`);
   }
 
   setPokemonTypes(type:string) {

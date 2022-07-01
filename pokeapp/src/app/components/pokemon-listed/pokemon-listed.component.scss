@@ -10,6 +10,7 @@
         border: 5px solid rgb(235, 235, 235);
         margin: 1vw 0 1vw 0.9vw;
         transition: 0.75s;
+        z-index: 3;
         cursor: pointer;
         &:hover{
             transform: scale(0.95);

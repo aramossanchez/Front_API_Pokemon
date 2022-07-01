@@ -11,8 +11,8 @@ import { PokemonService } from './services/pokemon.service';
 import { PokemonListedComponent } from './components/pokemon-listed/pokemon-listed.component';
 import { PokedexComponent } from './components/pokedex/pokedex.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatSelectModule} from '@angular/material/select';
 import { SpinnerComponent } from './components/spinner/spinner.component';
+import { SelectorComponent } from './components/selector/selector.component';
 
 @NgModule({
   declarations: [
@@ -22,14 +22,14 @@ import { SpinnerComponent } from './components/spinner/spinner.component';
     PokemonListComponent,
     PokemonListedComponent,
     PokedexComponent,
-    SpinnerComponent
+    SpinnerComponent,
+    SelectorComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MatSelectModule
   ],
   providers: [PokemonService],
   bootstrap: [AppComponent]

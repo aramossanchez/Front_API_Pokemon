@@ -1,14 +1,17 @@
-<app-spinner *ngIf="paintNumberPokemonLoaded() < 151"></app-spinner>
-<div class="main_screen">
+<app-spinner *ngIf="numberPokemonLoaded < numberPokemonListed">{{ paintNumberPokemonLoaded() }}</app-spinner>
+<div class="main_screen" (click)="test()">
     <div class="filters">
-        <mat-form-field appearance="fill" (click)="setPokemonTypes()">
-            <mat-label>Filter by TYPE</mat-label>
-            <mat-select>
-                <mat-option *ngFor="let type of pokemonTypes" [value]="type">
-                    {{type | uppercase}}
-                </mat-option>
-            </mat-select>
-        </mat-form-field>
+        <div class="select" (mouseenter)="setPokemonTypes()" (click)="toggleFilter()">
+            <div class="flex-row-spacebetween">
+                <p>
+                    <span *ngIf="filterParameter" class="material-icons deleteFilterParameter" (click)="deleteFilterParameter($event)">cancel</span>
+                    {{filterParameter ? filterParameter : "Filter by TYPE"}}
+                </p>
+                <span *ngIf="!filterOpen" class='material-icons'>arrow_downward</span>
+                <span *ngIf="filterOpen" class='material-icons'>close</span>
+            </div>
+            <div class="option" *ngFor="let type of pokemonTypes" (click)="selectFilterParameter($event)">{{type | uppercase}}</div>
+        </div>
     </div>
     <div class='pokemon_list'>
         <app-pokemon-listed *ngFor="let pokemon of pokemonList" [pokemon]="pokemon" (click)="selectionPokemon(pokemon)"></app-pokemon-listed>
