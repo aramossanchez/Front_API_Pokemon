@@ -10,7 +10,9 @@ import { PokemonService } from 'src/app/services/pokemon.service';
 })
 export class PokemonListedComponent implements OnInit {
 
-  pokemonListed?: Pokemon;
+  pokemonListed? : Pokemon;
+
+  showingShiny : boolean = false;
 
   @Input()
   pokemon!: PokemonListed;
@@ -37,6 +39,24 @@ export class PokemonListedComponent implements OnInit {
 
   convert(unit:any) {
     return unit/10;
+  }
+
+  //CAMBIA IMAGEN DE POKEMON NORMAL O SHINY
+  changeSprite(e:any) {
+    e.stopPropagation();
+    e.target.setAttribute(
+      'style',
+      `animation: hideImage 0.5s ease 0s 1, showImage 0.5s ease 0.5s 1;`,
+    )
+    setTimeout(() => {
+      this.showingShiny = !this.showingShiny;      
+    }, 250);
+    setTimeout(() => {
+      e.target.setAttribute(
+        'style',
+        `animation: "";`,
+      )
+    }, 1000);
   }
   
 }

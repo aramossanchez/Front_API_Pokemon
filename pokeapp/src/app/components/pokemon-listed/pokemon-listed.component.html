@@ -1,6 +1,6 @@
 <div class="pokemon_listed">
     <div class="img_type_container">
-        <img [src]="pokemonListed?.sprites?.front_default" alt="Imagen Pokemon Frontal">
+        <img (click)="changeSprite($event)" [src]="showingShiny ? pokemonListed?.sprites?.front_shiny : pokemonListed?.sprites?.front_default" alt="Imagen Pokemon Frontal">
         <div class="types_container">
             <span *ngFor="let type of pokemonListed?.types" class="pokemon_type {{type.type.name}}" >{{type.type.name | uppercase}}</span>
         </div>
