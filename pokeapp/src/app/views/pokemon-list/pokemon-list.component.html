@@ -1,5 +1,5 @@
 <app-spinner *ngIf="numberPokemonLoaded < numberPokemonListed">{{ paintNumberPokemonLoaded() }}</app-spinner>
-<div class="main_screen" (click)="test()">
+<div class="main_screen">
     <div class="filters">
         <div class="select" (mouseenter)="setPokemonTypes()" (click)="toggleFilter()">
             <div class="flex-row-spacebetween">
@@ -8,12 +8,12 @@
                     {{filterParameter ? filterParameter : "Filter by TYPE"}}
                 </p>
                 <span *ngIf="!filterOpen" class='material-icons'>arrow_downward</span>
-                <span *ngIf="filterOpen" class='material-icons'>close</span>
+                <span *ngIf="filterOpen" class='material-icons'>arrow_upward</span>
             </div>
             <div class="option" *ngFor="let type of pokemonTypes" (click)="selectFilterParameter($event)">{{type | uppercase}}</div>
         </div>
     </div>
-    <div class='pokemon_list'>
+    <div [ngClass]="{'hide pokemon_list': numberPokemonLoaded < numberPokemonListed, 'pokemon_list': numberPokemonLoaded === numberPokemonListed}">
         <app-pokemon-listed *ngFor="let pokemon of pokemonList" [pokemon]="pokemon" (click)="selectionPokemon(pokemon)"></app-pokemon-listed>
     </div>
     <app-pokedex *ngIf="pokedexStatus" [pokemonSelected]="pokemon" [pokedexOpen]="pokedexStatus" (sendPokedexStatus)="changeStatusPokedex($event)"></app-pokedex>
