@@ -1,19 +1,36 @@
 <app-spinner *ngIf="numberPokemonLoaded < numberPokemonListed">{{ paintNumberPokemonLoaded() }}</app-spinner>
 <div class="main_screen">
-    <div class="filters">
-        <div class="select" (mouseenter)="setPokemonTypes()" (click)="toggleFilter()">
-            <div class="flex-row-spacebetween">
-                <p>
-                    <span *ngIf="filterParameter" class="material-icons deleteFilterParameter" (click)="deleteFilterParameter($event)">cancel</span>
-                    {{filterParameter ? filterParameter : "Filter by TYPE"}}
-                </p>
-                <span *ngIf="!filterOpen" class='material-icons'>arrow_downward</span>
-                <span *ngIf="filterOpen" class='material-icons'>arrow_upward</span>
+    <div class="pokemon-list-header flex-row-spacebetween">
+        <div class="filters">
+            <div class="select" (mouseenter)="setPokemonTypes()" (click)="toggleFilter()">
+                <div class="flex-row-spacebetween">
+                    <p>
+                        <span *ngIf="filterParameter" class="material-icons deleteFilterParameter" (click)="deleteFilterParameter($event)">cancel</span>
+                        {{filterParameter ? filterParameter : "Filter by TYPE"}}
+                    </p>
+                    <span *ngIf="!filterOpen" class='material-icons'>arrow_downward</span>
+                    <span *ngIf="filterOpen" class='material-icons'>arrow_upward</span>
+                </div>
+                <div class="option" *ngFor="let type of pokemonTypes" (click)="selectFilterParameter($event)">{{type | uppercase}}</div>
             </div>
-            <div class="option" *ngFor="let type of pokemonTypes" (click)="selectFilterParameter($event)">{{type | uppercase}}</div>
+        </div>
+        <div class="changeView">
+            <span (click)="changeView()" [class.active]="showMosaic" class="material-icons">auto_awesome_mosaic</span> | 
+            <span (click)="changeView()" [class.active]="!showMosaic" class='material-icons'>table_rows</span>
         </div>
     </div>
-    <div [ngClass]="{'hide pokemon_list': numberPokemonLoaded < numberPokemonListed, 'pokemon_list': numberPokemonLoaded === numberPokemonListed}">
+    <div *ngIf="!showMosaic" [ngClass]="{'hide table_pokemon_list': numberPokemonLoaded < numberPokemonListed, 'table_pokemon_list': numberPokemonLoaded === numberPokemonListed}">
+        <div class="columns_table_pokemon">
+            <div class="column_short">Number</div>
+            <div class="column_long">Name</div>
+            <div class="column_short">Height</div>
+            <div class="column_short">Weight</div>
+            <div class="column_long">Type</div>
+        </div>
+        <hr>
+        <app-row-pokemon-listed *ngFor="let pokemon of pokemonList" [pokemon]="pokemon" (click)="selectionPokemon(pokemon)"></app-row-pokemon-listed>
+    </div>
+    <div *ngIf="showMosaic" [ngClass]="{'hide pokemon_list': numberPokemonLoaded < numberPokemonListed, 'pokemon_list': numberPokemonLoaded === numberPokemonListed}">
         <app-pokemon-listed *ngFor="let pokemon of pokemonList" [pokemon]="pokemon" (click)="selectionPokemon(pokemon)"></app-pokemon-listed>
     </div>
     <app-pokedex *ngIf="pokedexStatus" [pokemonSelected]="pokemon" [pokedexOpen]="pokedexStatus" (sendPokedexStatus)="changeStatusPokedex($event)"></app-pokedex>

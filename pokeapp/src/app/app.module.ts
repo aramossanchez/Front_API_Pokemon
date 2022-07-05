@@ -9,6 +9,7 @@ import { NavMenuComponent } from './components/nav-menu/nav-menu.component';
 import { PokemonListComponent } from './views/pokemon-list/pokemon-list.component';
 import { PokemonService } from './services/pokemon.service';
 import { PokemonListedComponent } from './components/pokemon-listed/pokemon-listed.component';
+import { RowPokemonListedComponent } from './components/row-pokemon-listed/row-pokemon-listed.component';
 import { PokedexComponent } from './components/pokedex/pokedex.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SpinnerComponent } from './components/spinner/spinner.component';
@@ -21,6 +22,7 @@ import { SelectorComponent } from './components/selector/selector.component';
     NavMenuComponent,
     PokemonListComponent,
     PokemonListedComponent,
+    RowPokemonListedComponent,
     PokedexComponent,
     SpinnerComponent,
     SelectorComponent

@@ -28,6 +28,9 @@ export class PokemonListComponent implements OnInit {
 
   filterParameter = null;
   
+  //USADO PARA MOSTRAR VISTA MOSAICO O VISTA TABLA
+  showMosaic = true;
+  
   constructor(private pokemonservice: PokemonService) { }
 
   ngOnInit(): void {
@@ -127,6 +130,12 @@ export class PokemonListComponent implements OnInit {
     this.numberPokemonLoaded = 0;
     this.filterParameter = null;
     this.getAllPokemon();
+  }
+
+  changeView() {
+    this.pokemonservice.pokemonCount = 0;
+    this.numberPokemonLoaded = 0;
+    this.showMosaic = !this.showMosaic;
   }
 
 }

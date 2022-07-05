@@ -1,0 +1,10 @@
+<div class="row_pokemon_listed">
+    <div class="column_short">{{pokemonListed?.id}}</div>
+    <div class="column_long">{{pokemonListed?.name | uppercase}}</div>
+    <div class="column_short">{{convert(pokemonListed?.height)}} m</div>
+    <div class="column_short">{{convert(pokemonListed?.weight)}} kg</div>
+    <div class="column_long">
+        <span *ngFor="let type of pokemonListed?.types" class="pokemon_type {{type.type.name}}" >{{type.type.name | uppercase}}</span>
+    </div>
+</div>
+<hr>

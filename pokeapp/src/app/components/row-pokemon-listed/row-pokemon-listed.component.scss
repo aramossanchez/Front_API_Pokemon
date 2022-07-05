@@ -1,0 +1,150 @@
+:host{
+    .row_pokemon_listed{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        width: 80vw;
+        z-index: 3;
+        padding: 10px 0;
+        cursor: pointer;
+        &:hover{
+            background-color: rgb(194, 194, 194);
+        }
+        div.column_long, div.column_short{
+            padding: 5px 25px 5px 20px;
+            text-align: left;
+        }
+        div.column_long{
+            width: 30%;
+        }
+        div.column_short{
+            width: 10%;
+        }
+        .types_container{
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            justify-content: flex-end;
+        }
+        span{
+            transition: 0.5s;
+            margin: 2px 5px;
+        }
+        .pokemon_type{
+            padding-right: 2px;
+        }
+    }
+}
+@media screen and (max-width: 1503px){
+    :host{
+        .pokemon_listed{
+            width: 14.5vw;
+            margin: 1vw 0 1vw 1.2vw;
+        }
+    }
+}
+@media screen and (max-width: 1295px){
+    :host{
+        .pokemon_listed{
+            width: 16.5vw;
+            margin: 1vw 0 1vw 2.1vw;
+        }
+    }
+}
+@media screen and (max-width: 1138px){
+    :host{
+        .pokemon_listed{
+            width: 18.5vw;
+            margin: 1vw 0 1vw 4.2vw;
+        }
+    }
+}
+@media screen and (max-width: 1010px){
+    :host{
+        .pokemon_listed{
+            width: 20.5vw;
+            margin: 2vw 0 2vw 8.2vw;
+        }
+    }
+}
+@media screen and (max-width: 940px){
+    :host{
+        .pokemon_listed{
+            width: 20.5vw;
+            margin: 2vw 0 2vw 3.2vw;
+        }
+    }
+}
+@media screen and (max-width: 940px){
+    :host{
+        .pokemon_listed{
+            width: 22.5vw;
+            margin: 2vw 0 2vw 8.2vw;
+        }
+    }
+}
+@media screen and (max-width: 828px){
+    :host{
+        .pokemon_listed{
+            width: 24.5vw;
+            margin: 2vw 0 2vw 5.2vw;
+        }
+    }
+}
+@media screen and (max-width: 761px){
+    :host{
+        .pokemon_listed{
+            width: 26.5vw;
+            margin: 2vw 0 2vw 4.2vw;
+        }
+    }
+}
+@media screen and (max-width: 704px){
+    :host{
+        .pokemon_listed{
+            width: 29.5vw;
+            margin: 3vw 0 3vw 14.2vw;
+        }
+    }
+}
+@media screen and (max-width: 640px){
+    :host{
+        .pokemon_listed{
+            width: 32.5vw;
+            margin: 3vw 0 3vw 10.2vw;
+        }
+    }
+}
+@media screen and (max-width: 573px){
+    :host{
+        .pokemon_listed{
+            width: 34.5vw;
+            margin: 3vw 0 3vw 10.2vw;
+        }
+    }
+}
+@media screen and (max-width: 554px){
+    :host{
+        .pokemon_listed{
+            width: 40.5vw;
+            margin: 3vw 0 3vw 5vw;
+        }
+    }
+}
+@media screen and (max-width: 461px){
+    :host{
+        .pokemon_listed{
+            width: 50vw;
+            margin: 3vw 0 3vw 25vw;
+        }
+    }
+}
+@media screen and (max-width: 378px){
+    :host{
+        .pokemon_listed{
+            width: 70vw;
+            margin: 3vw 0 3vw 15vw;
+        }
+    }
+}
