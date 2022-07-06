@@ -13,6 +13,11 @@
                 </div>
                 <div class="option" *ngFor="let type of pokemonTypes" (click)="selectFilterParameter($event)">{{type | uppercase}}</div>
             </div>
+            <div class="search">
+                <input type="text" placeholder="Search by Name" (keyup)="setParameterSearch($event)" [(ngModel)]="parameterSearch">
+                <span class="material-icons do_search" (click)="searchPokemon()">search</span>
+                <span (click)="deleteSearch()" *ngIf="pokemonList.length !== pokemonListSecurityCopy.length" class="material-icons close_search">cancel</span>
+            </div>
         </div>
         <div class="changeView">
             <span (click)="changeView()" [class.active]="showMosaic" class="material-icons">auto_awesome_mosaic</span> | 
@@ -30,7 +35,7 @@
         <hr>
         <app-row-pokemon-listed *ngFor="let pokemon of pokemonList" [pokemon]="pokemon" (click)="selectionPokemon(pokemon)"></app-row-pokemon-listed>
     </div>
-    <div *ngIf="showMosaic" [ngClass]="{'hide pokemon_list': numberPokemonLoaded < numberPokemonListed, 'pokemon_list': numberPokemonLoaded === numberPokemonListed}">
+    <div *ngIf="showMosaic" [ngClass]="{'hide pokemon_list': numberPokemonLoaded !== numberPokemonListed, 'pokemon_list': numberPokemonLoaded === numberPokemonListed}">
         <app-pokemon-listed *ngFor="let pokemon of pokemonList" [pokemon]="pokemon" (click)="selectionPokemon(pokemon)"></app-pokemon-listed>
     </div>
     <app-pokedex *ngIf="pokedexStatus" [pokemonSelected]="pokemon" [pokedexOpen]="pokedexStatus" (sendPokedexStatus)="changeStatusPokedex($event)"></app-pokedex>

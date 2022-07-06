@@ -10,7 +10,9 @@ import { PokemonService } from 'src/app/services/pokemon.service';
 export class PokemonListComponent implements OnInit {
 
   
-  pokemonList?:PokemonListed[];
+  pokemonList:PokemonListed[] = [{name: '', url: ''}];
+
+  pokemonListSecurityCopy:PokemonListed[] = [{name: '', url: ''}];
   
   pokedexStatus: boolean = false;
   
@@ -30,6 +32,10 @@ export class PokemonListComponent implements OnInit {
   
   //USADO PARA MOSTRAR VISTA MOSAICO O VISTA TABLA
   showMosaic = true;
+
+  parameterSearch:string = "";
+
+  arrayPokemonSearched:PokemonListed[] = [{name: '', url: ''}];
   
   constructor(private pokemonservice: PokemonService) { }
 
@@ -47,8 +53,9 @@ export class PokemonListComponent implements OnInit {
     this.pokemonservice.getPokemonList().subscribe(
       (res) => {
         this.pokemonList = res.results;
+        this.pokemonListSecurityCopy = res.results;
         this.pokemonservice.setTotalPokemon(res.results.length);
-        this.numberPokemonListed = res.results.length;
+        this.numberPokemonListed = this.pokemonservice.totalPokemon;
       },
       (error) => {
         console.error(error);
@@ -101,6 +108,7 @@ export class PokemonListComponent implements OnInit {
 
   //AL SELECCIONAR UN FILTRO, HACE UNA BUSQUEDA CON LOS POKEMON DE ESE TIPO
   selectFilterParameter(e:any) {
+    this.parameterSearch = "";
     this.numberPokemonLoaded = 0;
     this.filterParameter = e.target.innerHTML;
     let filterParameter = (e.target.innerHTML).toLowerCase()
@@ -115,8 +123,9 @@ export class PokemonListComponent implements OnInit {
           }
         })
         this.pokemonList = arrayPokemonFiltered;
+        this.pokemonListSecurityCopy = arrayPokemonFiltered;
         this.pokemonservice.setTotalPokemon(arrayPokemonFiltered.length);
-        this.numberPokemonListed = arrayPokemonFiltered.length;
+        this.numberPokemonListed = this.pokemonservice.totalPokemon;
       },
       (error) => {
         console.error(error);
@@ -127,15 +136,44 @@ export class PokemonListComponent implements OnInit {
   //BORRA EL FILTRO APLICADO ACTUALMENTE
   deleteFilterParameter(e:any) {
     e.stopPropagation();
+    this.parameterSearch = "";
     this.numberPokemonLoaded = 0;
     this.filterParameter = null;
     this.getAllPokemon();
   }
 
+  //CAMBIA ENTRE VISTA MOSAICO Y VISTA TABLA
   changeView() {
     this.pokemonservice.pokemonCount = 0;
     this.numberPokemonLoaded = 0;
     this.showMosaic = !this.showMosaic;
+  }
+
+  //GUARDA EL PARAMETRO QUE VAMOS A USAR PARA BUSCAR
+  setParameterSearch(event:any) {
+    this.arrayPokemonSearched = this.pokemonListSecurityCopy.filter(pokemon => pokemon.name.includes(this.parameterSearch.toLowerCase()));
+    if (event.keyCode === 13) {
+      this.searchPokemon();
+    }
+  }
+
+  //GUARDA EN POKEMONLIST LA BUSQUEDA GUARDADA EN ARRAYPOKEMONSEARCHED(SIN TIMEOUT NO FUNCIONA)
+  searchPokemon() {
+    this.pokemonList = [];
+    this.numberPokemonLoaded = 0;
+    this.pokemonservice.pokemonCount = 0;
+    this.pokemonservice.setTotalPokemon(this.arrayPokemonSearched.length);
+    this.numberPokemonListed = this.pokemonservice.totalPokemon;
+    setTimeout(() => {
+      this.pokemonList = this.arrayPokemonSearched;
+    }, 1);
+  }
+
+  //RESTAURA LA COPIA DE POKEMONLISTED, Y DEJA EN BLANCO EL INPUT DE BUSQUEDA
+  deleteSearch() {
+    this.parameterSearch = "";
+    this.arrayPokemonSearched = this.pokemonListSecurityCopy.filter(pokemon => pokemon.name.includes(this.parameterSearch.toLowerCase()));
+    this.searchPokemon();
   }
 
 }

@@ -14,6 +14,7 @@ import { PokedexComponent } from './components/pokedex/pokedex.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SpinnerComponent } from './components/spinner/spinner.component';
 import { SelectorComponent } from './components/selector/selector.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { SelectorComponent } from './components/selector/selector.component';
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    FormsModule,
   ],
   providers: [PokemonService],
   bootstrap: [AppComponent]
