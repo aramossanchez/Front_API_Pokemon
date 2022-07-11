@@ -172,7 +172,7 @@ export class PokemonListComponent implements OnInit {
   //RESTAURA LA COPIA DE POKEMONLISTED, Y DEJA EN BLANCO EL INPUT DE BUSQUEDA
   deleteSearch() {
     this.parameterSearch = "";
-    this.arrayPokemonSearched = this.pokemonListSecurityCopy.filter(pokemon => pokemon.name.includes(this.parameterSearch.toLowerCase()));
+    this.arrayPokemonSearched = this.pokemonListSecurityCopy;
     this.searchPokemon();
   }
 
