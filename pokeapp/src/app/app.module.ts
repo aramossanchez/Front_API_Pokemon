@@ -15,6 +15,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SpinnerComponent } from './components/spinner/spinner.component';
 import { SelectorComponent } from './components/selector/selector.component';
 import { FormsModule } from '@angular/forms';
+import { PokemonTeamComponent } from './views/pokemon-team/pokemon-team.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { FormsModule } from '@angular/forms';
     RowPokemonListedComponent,
     PokedexComponent,
     SpinnerComponent,
-    SelectorComponent
+    SelectorComponent,
+    PokemonTeamComponent
   ],
   imports: [
     BrowserModule,

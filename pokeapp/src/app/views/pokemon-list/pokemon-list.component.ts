@@ -36,6 +36,9 @@ export class PokemonListComponent implements OnInit {
   parameterSearch:string = "";
 
   arrayPokemonSearched:PokemonListed[] = [{name: '', url: ''}];
+
+  //USADO PARA GESTIONAR EL ORDEN EN QUE SE ORDENAN LOS REGISTROS DE LA TABLA AL PULSAR EL BOTON PARA ORDENAR
+  orderASC!:boolean;
   
   constructor(private pokemonservice: PokemonService) { }
 
@@ -174,6 +177,36 @@ export class PokemonListComponent implements OnInit {
     this.parameterSearch = "";
     this.arrayPokemonSearched = this.pokemonListSecurityCopy;
     this.searchPokemon();
+  }
+
+  //ORDENAR REGISTROS DE TABLA
+  orderRegisters(data:string) {
+    if (this.orderASC === null) {
+      this.orderASC = false;
+    }
+    this.orderASC = !this.orderASC;
+    if (this.orderASC) {
+      this.pokemonList.sort(function (a:any, b:any) {
+        if (a[data] > b[data]) {
+          return 1;
+        }
+        if (a[data] < b[data]) {
+          return -1;
+        }
+        return 0;
+      });
+    }
+    if (!this.orderASC) {
+      this.pokemonList.sort(function (a:any, b:any) {
+        if (a[data] > b[data]) {
+          return -1;
+        }
+        if (a[data] < b[data]) {
+          return 1;
+        }
+        return 0;
+      });
+    }
   }
 
 }

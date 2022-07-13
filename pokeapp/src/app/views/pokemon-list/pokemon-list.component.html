@@ -26,17 +26,24 @@
     </div>
     <div *ngIf="!showMosaic" [ngClass]="{'hide table_pokemon_list': numberPokemonLoaded < numberPokemonListed, 'table_pokemon_list': numberPokemonLoaded === numberPokemonListed}">
         <div class="columns_table_pokemon">
-            <div class="column_short">Number</div>
-            <div class="column_long">Name</div>
-            <div class="column_short">Height</div>
-            <div class="column_short">Weight</div>
-            <div class="column_long">Type</div>
+            <div class="flex-row-spacebetween column_short">Number</div>
+            <div class="flex-row-spacebetween column_long">
+                Name
+                <span (click)="orderRegisters('name')" class="material-icons clickable">import_export</span>
+            </div>
+            <div class="flex-row-spacebetween column_short">Height</div>
+            <div class="flex-row-spacebetween column_short">Weight</div>
+            <div class="flex-row-spacebetween column_long">Type</div>
         </div>
         <hr>
         <app-row-pokemon-listed *ngFor="let pokemon of pokemonList" [pokemon]="pokemon" (click)="selectionPokemon(pokemon)"></app-row-pokemon-listed>
     </div>
-    <div *ngIf="showMosaic" [ngClass]="{'hide pokemon_list': numberPokemonLoaded !== numberPokemonListed, 'pokemon_list': numberPokemonLoaded === numberPokemonListed}">
-        <app-pokemon-listed *ngFor="let pokemon of pokemonList" [pokemon]="pokemon" (click)="selectionPokemon(pokemon)"></app-pokemon-listed>
-    </div>
+    <ng-container *ngIf="pokemonList.length>0">
+    <ng-container *ngIf="pokemonList[0].name.length>0">
+        <div *ngIf="showMosaic" [ngClass]="{'hide pokemon_list': numberPokemonLoaded !== numberPokemonListed, 'pokemon_list': numberPokemonLoaded === numberPokemonListed}">
+            <app-pokemon-listed *ngFor="let pokemon of pokemonList" [pokemon]="pokemon" (click)="selectionPokemon(pokemon)"></app-pokemon-listed>
+        </div>
+    </ng-container>
+    </ng-container>
     <app-pokedex *ngIf="pokedexStatus" [pokemonSelected]="pokemon" [pokedexOpen]="pokedexStatus" (sendPokedexStatus)="changeStatusPokedex($event)"></app-pokedex>
 </div>
