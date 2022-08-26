@@ -1,7 +1,40 @@
 <div class="main_screen">
     <div class="pokemon_selected_list">
         <div class="pokemon_selected" *ngFor="let pokemonSelected of pokemonSelectedList">
-            <img *ngIf="pokemonSelected.sprites" [src]="pokemonSelected?.sprites?.front_default" alt="Pokemon selected for your team" (click)="deletePokemonTeam(pokemonSelected)">
+            <ng-container *ngIf="pokemonSelected.pokemon.sprites">
+                <span (click)="deletePokemonTeam(pokemonSelected)" class="material-icons">cancel</span>
+                <img [src]="pokemonSelected?.pokemon.sprites?.front_default" alt="Pokemon selected for your team" (click)="getAttackList(pokemonSelected)">
+                <div class="table_list_attacks_available" *ngIf="seeAttacksList">
+                    <div class="flex-row-spacebetween column_short">
+                        Name
+                        <span class="material-icons clickable">import_export</span>
+                    </div>
+                    <div class="flex-row-spacebetween column_long">
+                        Type
+                        <span class="material-icons clickable">import_export</span>
+                    </div>
+                    <div class="flex-row-spacebetween column_short">
+                        Damage Type
+                        <span class="material-icons clickable">import_export</span>
+                    </div>
+                    <div class="flex-row-spacebetween column_short">
+                        Power
+                        <span class="material-icons clickable">import_export</span>
+                    </div>
+                    <div class="flex-row-spacebetween column_long">
+                        Number of attacks
+                        <span class="material-icons clickable">import_export</span>
+                    </div>
+                    <hr>
+                    <div class="attack_available" *ngFor="let attack of listAttacksAvailablesFull">
+                        {{attack.name | uppercase}}
+                        {{attack.type.name | uppercase}}
+                        {{attack.damage_class.name | uppercase}}
+                        {{attack.power}}
+                        {{attack.pp}}
+                    </div>
+                </div>
+            </ng-container>
         </div>
     </div>
     <div class="pokemon_list">

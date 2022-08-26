@@ -44,4 +44,8 @@ export class PokemonService {
   increasePokemonCount() {
     this.pokemonCount ++;
   }
+
+  getMove(url:string) : Observable<any> {
+    return this.http.get<any>(url);
+  }
 }
