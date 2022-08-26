@@ -11,10 +11,11 @@ import { PokemonService } from 'src/app/services/pokemon.service';
 export class PokemonListComponent implements OnInit {
 
   
+  //LISTA CON TODOS LOS POKEMONS, SOLO CON NOMBRE Y URL
   pokemonList:PokemonListed[] = [{name: '', url: ''}];
 
-  //LISTA CON TODA LA INFORMACION COMPLETA DE CADA POKEMON
-  pokemonListFull:Pokemon[] = [];
+  //LISTA CON TODOS LOS POKEMONS, CON TODA LA INFORMACION COMPLETA DE CADA UNO
+  pokemonListFull:Pokemon[] = []; 
 
   pokemonListSecurityCopy:PokemonListed[] = [{name: '', url: ''}];
   
@@ -60,7 +61,7 @@ export class PokemonListComponent implements OnInit {
     this.pokemonservice.getPokemonList().subscribe(
       (res) => {
         this.pokemonList = res.results;
-        this.getAllPokemonFull();
+        this.getAllPokemonFull()
         this.pokemonListSecurityCopy = res.results;
         this.pokemonservice.setTotalPokemon(res.results.length);
         this.numberPokemonListed = this.pokemonservice.totalPokemon;
@@ -73,16 +74,21 @@ export class PokemonListComponent implements OnInit {
 
   //GUARDAR LISTADO CON INFORMACION COMPLETA DE CADA POKEMON
   getAllPokemonFull() {
+    let pokemonListFullPre:Pokemon[] = [];
     this.pokemonList.map((pokemon) => {
       this.pokemonservice.getPokemonByName(pokemon.name).subscribe(
         (res) => {
-          this.pokemonListFull.push(res);
+          pokemonListFullPre.push(res);
+          if (this.pokemonList.length == pokemonListFullPre.length) {
+            this.pokemonListFull = pokemonListFullPre;
+            console.log(this.pokemonListFull);
+          }
         },
         (error) => {
           console.error(error);
         }
       );
-    })
+    });
   }
 
   //SELECCIONAR UN POKEMON

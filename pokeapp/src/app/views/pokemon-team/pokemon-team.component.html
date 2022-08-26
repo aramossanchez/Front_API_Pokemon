@@ -1,2 +1,10 @@
 <div class="main_screen">
+    <div class="pokemon_selected_list">
+        <div class="pokemon_selected" *ngFor="let pokemonSelected of pokemonSelectedList">
+            <img *ngIf="pokemonSelected.sprites" [src]="pokemonSelected?.sprites?.front_default" alt="Pokemon selected for your team" (click)="deletePokemonTeam(pokemonSelected)">
+        </div>
+    </div>
+    <div class="pokemon_list">
+        <app-pokemon-listed-team *ngFor="let pokemon of pokemonListFull" [pokemon]="pokemon" (click)="addPokemonTeam(pokemon)"></app-pokemon-listed-team>
+    </div>
 </div>

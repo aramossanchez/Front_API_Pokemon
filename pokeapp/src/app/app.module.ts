@@ -16,6 +16,7 @@ import { SpinnerComponent } from './components/spinner/spinner.component';
 import { SelectorComponent } from './components/selector/selector.component';
 import { FormsModule } from '@angular/forms';
 import { PokemonTeamComponent } from './views/pokemon-team/pokemon-team.component';
+import { PokemonListedTeamComponent } from './components/pokemon-listed-team/pokemon-listed-team.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { PokemonTeamComponent } from './views/pokemon-team/pokemon-team.componen
     PokedexComponent,
     SpinnerComponent,
     SelectorComponent,
-    PokemonTeamComponent
+    PokemonTeamComponent,
+    PokemonListedTeamComponent
   ],
   imports: [
     BrowserModule,

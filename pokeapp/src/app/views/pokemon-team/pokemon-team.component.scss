@@ -1,3 +1,29 @@
 :host{
-    
+    .pokemon_selected_list{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        position:sticky;
+        top: 0;
+    }
+    .pokemon_selected{
+        border: 1px solid black;
+        margin: 2px;
+        width: 120px;
+        height: 160px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        img{
+            width: 100px;
+            height: 100px;
+        }
+    }
+    .pokemon_list{
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+    }
 }
