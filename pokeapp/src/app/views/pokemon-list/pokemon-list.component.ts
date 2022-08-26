@@ -1,4 +1,5 @@
 import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Pokemon } from 'src/app/models/pokemon.model';
 import { PokemonListed } from 'src/app/models/pokemonlisted.model';
 import { PokemonService } from 'src/app/services/pokemon.service';
 
@@ -11,6 +12,9 @@ export class PokemonListComponent implements OnInit {
 
   
   pokemonList:PokemonListed[] = [{name: '', url: ''}];
+
+  //LISTA CON TODA LA INFORMACION COMPLETA DE CADA POKEMON
+  pokemonListFull:Pokemon[] = [];
 
   pokemonListSecurityCopy:PokemonListed[] = [{name: '', url: ''}];
   
@@ -56,6 +60,7 @@ export class PokemonListComponent implements OnInit {
     this.pokemonservice.getPokemonList().subscribe(
       (res) => {
         this.pokemonList = res.results;
+        this.getAllPokemonFull();
         this.pokemonListSecurityCopy = res.results;
         this.pokemonservice.setTotalPokemon(res.results.length);
         this.numberPokemonListed = this.pokemonservice.totalPokemon;
@@ -64,6 +69,20 @@ export class PokemonListComponent implements OnInit {
         console.error(error);
       }
     )
+  }
+
+  //GUARDAR LISTADO CON INFORMACION COMPLETA DE CADA POKEMON
+  getAllPokemonFull() {
+    this.pokemonList.map((pokemon) => {
+      this.pokemonservice.getPokemonByName(pokemon.name).subscribe(
+        (res) => {
+          this.pokemonListFull.push(res);
+        },
+        (error) => {
+          console.error(error);
+        }
+      );
+    })
   }
 
   //SELECCIONAR UN POKEMON
