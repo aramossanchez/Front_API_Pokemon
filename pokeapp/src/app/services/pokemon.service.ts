@@ -1,51 +1,27 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { from, Observable } from 'rxjs';
-import { PokemonListResponse } from '../models/pokemonlist-response.interface';
 import { Pokemon } from '../models/pokemon.model';
-import { PokemonListed } from 'src/app/models/pokemonlisted.model';
+import { PokemonListed } from '../models/pokemonlisted.model';
+import axios from 'axios';
 
 @Injectable({
   providedIn: 'root'
 })
-export class PokemonService {
+export class PokemonService {  
 
-  pokemonTypes : string[] = [];
-  totalPokemon = 0;
-  pokemonCount = 0;
-  
+  constructor() { }
 
-  constructor(private http: HttpClient) { }
-
-  getPokemonList(): Observable<PokemonListResponse> {
-    this.pokemonCount = 0;
-    return this.http.get<PokemonListResponse>('https://pokeapi.co/api/v2/pokemon/?limit=151&offset=0%22');
+  async getPokemonList(): Promise<PokemonListed[]> {
+    return axios.get('https://pokeapi.co/api/v2/pokemon/?limit=151&offset=0%22')
+    .then((response) => response.data.results);
   }
 
-  getPokemonByName(name:string) : Observable<Pokemon> {
-    return this.http.get<Pokemon>(`https://pokeapi.co/api/v2/pokemon/${name}`);
+  async getPokemonListFullInformation(pokemon_name: string): Promise<Pokemon> {
+    return axios.get(`https://pokeapi.co/api/v2/pokemon/${pokemon_name}`)
+    .then((response) => response.data);
   }
 
-  getPokemonByType(type:string) : Observable<any> {
-    this.pokemonCount = 0;
-    return this.http.get<any>(`https://pokeapi.co/api/v2/type/${type}`);
-  }
-
-  setPokemonTypes(type:string) {
-    if (!this.pokemonTypes.find(item => item === type)) {
-      this.pokemonTypes.push(type);
-    }
-  }
-
-  setTotalPokemon(number:number) {
-    this.totalPokemon = number;
-  }
-
-  increasePokemonCount() {
-    this.pokemonCount ++;
-  }
-
-  getMove(url:string) : Observable<any> {
-    return this.http.get<any>(url);
+  async getTypes(): Promise<any> {
+    return axios.get(`https://pokeapi.co/api/v2/type/`)
+    .then((response) => response.data.results);
   }
 }

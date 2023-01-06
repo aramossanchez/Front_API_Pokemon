@@ -1,11 +1,18 @@
 :host{
     .filters{
         height: 5vh;
-        margin: 0 2vw;
+        margin: 30px 2vw;
         display: flex;
         flex-direction: row;
         align-items: flex-start;
         justify-content: flex-start;
+        .filter_and_arrow_container {
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-around;
+        }
         .select{
             display: flex;
             position: relative;
@@ -19,7 +26,7 @@
             transition: 0.2s;
             background-color: var(--secondary);
             z-index: 3;
-            cursor: default;
+            cursor: pointer;
             &:hover{
                 box-shadow: 2px 5px 15px -5px var(--outfocus);
                 border: 2px solid var(--main);
@@ -40,13 +47,6 @@
                 padding: 0 2.5px;
                 color: var(--outfocus);
             }
-            .deleteFilterParameter{
-                cursor: pointer;
-                font-size: 15px;
-                &:hover{
-                    color: red;
-                }
-            }
             .option{
                 font-size: 0;
                 padding: 0;
@@ -61,8 +61,35 @@
                 font-size: medium;
             }
         }
+        .aplicated_filter {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            width: 100px;
+            padding: 4.5px 5px;
+            margin-left: 10px;
+            border: 2px solid var(--outfocus);
+            border-radius: 5px;
+            cursor: default;
+            transition: 0.2s;
+            &:hover{
+                box-shadow: 2px 5px 15px -5px var(--outfocus);
+                p,span{
+                    color: var(--main);
+                }
+            }
+            .deleteFilterParameter{
+                cursor: pointer;
+                font-size: 20px;
+                transition: 0.2s;
+                &:hover{
+                    color: red;
+                }
+            }
+        }
         .search{
-            margin-left: 20px;
+            margin-left: 10px;
             position: relative;
             color: var(--outfocus);
             &:hover{
@@ -81,15 +108,14 @@
                 color: var(--outfocus);
             }
             .do_search{
-                font-size: 40px;
+                font-size: 30px;
+                top: 2px;
                 left: 2px;
-                &:hover{
-                    color: var(--main);
-                }
+                cursor: default;
             }
             .close_search{
-                font-size: 25px;
-                top: 8.5px;
+                font-size: 21px;
+                top: 6px;
                 right: 5px;
                 color: var(--outfocus);
                 &:hover{
@@ -99,7 +125,7 @@
             input{
                 all: unset;
                 width: 300px;
-                padding: 10px 45px;
+                padding: 5px 45px;
                 border: 2px solid var(--outfocus);
                 border-radius: 5px;
                 transition: 0.2s;
@@ -137,10 +163,21 @@
         }
     }
     .pokemon_list{
-        display: flex;
-        flex-direction: row;
-        justify-content: flex-start;
-        flex-wrap: wrap;
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+        .pokemon_card {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            box-shadow: 5px 5px 6px -1px var(--shadow);
+            margin: 10px;
+            cursor: pointer;
+            color: var(--main);
+            padding: 20px 10px 0 10px;
+        }
     }
     .table_pokemon_list{
         margin: 0 2.5vw;
@@ -175,6 +212,111 @@
         hr{
             width: 90vw;
             border: 1px solid grey;
+        }
+    }
+    //TIPOS DE POKEMON
+    .pokemon_grass {
+        background-color: rgb(216, 255, 172, 0.5);
+    }
+    .pokemon_poison {
+        background-color: rgb(211, 172, 255, 0.5);
+    }
+    .pokemon_fire {
+        background-color: rgba(255, 166, 0, 0.5);
+    }
+    .pokemon_water {
+        background-color: rgb(173, 229, 255, 0.5);
+    }
+    .pokemon_bug {
+        background-color: rgb(46, 163, 0, 0.5);
+    }
+    .pokemon_normal {
+        background-color: rgb(252, 235, 253, 0.5);
+    }
+    .pokemon_electric {
+        background-color: rgb(255, 246, 167, 0.5);
+    }
+    .pokemon_ground {
+        background-color: rgb(255, 223, 172, 0.5);
+    }
+    .pokemon_fairy {
+        background-color: rgb(249, 203, 255, 0.5);
+    }
+    .pokemon_fighting {
+        background-color: rgb(255, 160, 119, 0.5);
+    }
+    .pokemon_rock {
+        background-color: rgb(100, 66, 52, 0.5);
+    }
+    .pokemon_psychic {
+        background-color: rgb(219, 138, 240, 0.5);
+    }
+    .pokemon_steel {
+        background-color: rgb(141, 141, 141, 0.5);
+    }
+    .pokemon_ice {
+        background-color: rgb(42, 91, 252, 0.5);
+    }
+    .pokemon_ghost {
+        background-color: rgba(41, 41, 41, 0.75);
+    }
+    .pokemon_dragon {
+        background-color: rgb(228, 121, 76, 0.25);
+    }
+}
+
+@media (max-width: 1663px) {
+    :host{
+        .pokemon_list{
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+        }
+    }
+}
+
+@media (max-width: 1461px) {
+    :host{
+        .pokemon_list{
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+        }
+    }
+}
+
+@media (max-width: 1261px) {
+    :host{
+        .pokemon_list{
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        }
+    }
+}
+
+@media (max-width: 1052px) {
+    :host{
+        .pokemon_list{
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+        }
+    }
+}
+
+@media (max-width: 846px) {
+    :host{
+        .pokemon_list{
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+    }
+}
+
+@media (max-width: 628px) {
+    :host{
+        .pokemon_list{
+            grid-template-columns: 1fr 1fr;
+        }
+    }
+}
+
+@media (max-width: 428px) {
+    :host{
+        .pokemon_list{
+            grid-template-columns: 1fr;
         }
     }
 }

@@ -1,0 +1,8 @@
+<p class="number_pokemon_card">{{pokemon.id}}</p>
+<p class="name_pokemon_card">{{pokemon.name | uppercase}}</p>
+<img src={{pokemon.sprites.front_default}} alt="Imagen de Pokemon">
+<div class="container_pokemon_type">
+    <div *ngFor="let type of pokemon.types" class="pokemon_type type_{{type.type.name}}">
+        {{type.type.name | uppercase}}
+    </div>
+</div>

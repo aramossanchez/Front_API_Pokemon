@@ -32,8 +32,8 @@
                 top: 0;
                 left: 0;
                 background-color: rgb(0, 0, 0);
-                width: 545px;
-                height: 150px;
+                width: 54%;
+                height: 25%;
                 clip-path: polygon(0% 0%, 37% 0%, 100% 0%, 100% 50.3%, 56% 50.3%, 44.5% 100%, 0% 100%);
                 display: flex;
                 flex-direction: column;
@@ -194,8 +194,8 @@
                 bottom: 0;
                 left: 0;
                 background-color: rgb(0, 0, 0);
-                width: 455px;
-                height: 625px;
+                width: 45.5%;
+                height: 89.3%;
                 clip-path: polygon(0% 11.9%, 52.7% 11.9%, 67% 0%, 100% 0%, 100% 100%, 31.2% 100%, 0% 100%);
                 .pokedex_left{
                     background-color: rgb(228, 0, 0);
@@ -366,10 +366,10 @@
             .pokedex_center_container{
                 position: absolute;
                 bottom: 0;
-                left: 455px;
+                left: 45.3%;
                 background-color: rgb(0, 0, 0);
-                width: 90px;
-                height: 625px;
+                width: 24%;
+                height: 89.3%;
                 .pokedex_center{
                     position: relative;
                     top: 1%;
@@ -384,8 +384,8 @@
                 bottom: 0;
                 right: 0;
                 background-color: rgb(0, 0, 0);
-                width: 455px;
-                height: 625px;
+                width: 45.5%;
+                height: 89.3%;
                 clip-path: polygon(38.7% 0%, 52.7% 12.2%, 100% 12.2%, 100% 100%, 50% 100%, 0% 100%, 0% 0%);
                 .pokedex_right{
                     position: relative;
@@ -396,6 +396,28 @@
                     clip-path: polygon(38.7% 0%, 52.7% 12.2%, 100% 12.2%, 100% 100%, 50% 100%, 0% 100%, 0% 0%);
                     background-color: rgb(228, 0, 0);
                 }
+            }
+        }
+    }
+}
+
+@media (max-width: 1030px) {
+    :host{
+        .container_pokedex{
+            .pokedex{
+                width: 700px;
+                height: 400px;
+            }
+        }
+    }
+}
+
+@media (max-width: 730px) {
+    :host{
+        .container_pokedex{
+            .pokedex{
+                width: 400px;
+                height: 300px;
             }
         }
     }

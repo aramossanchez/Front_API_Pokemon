@@ -6,6 +6,7 @@
     --aux-trans: rgba(251, 255, 0, 0.623);
     --aux2: rgb(37, 113, 255);
     --outfocus: rgb(156, 156, 156);
+    --shadow: rgba(0, 0, 0, 0.178);
 }
 *{
     margin:0;
@@ -23,14 +24,4 @@
 }
 .hide{
     display: none;
-}
-.flex-row-spacebetween{
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-}
-.clickable:hover{
-    cursor: pointer;
 }

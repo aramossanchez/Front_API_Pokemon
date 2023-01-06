@@ -1,17 +1,16 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { Pokemon } from 'src/app/models/pokemon.model';
-import { PokemonListed } from 'src/app/models/pokemonlisted.model';
 import { PokemonService } from 'src/app/services/pokemon.service';
 
 @Component({
-  selector: 'app-pokedex',
-  templateUrl: './pokedex.component.html',
-  styleUrls: ['./pokedex.component.scss']
+  selector: 'app-Pokedex',
+  templateUrl: './Pokedex.component.html',
+  styleUrls: ['./Pokedex.component.scss']
 })
 export class PokedexComponent implements OnInit {
 
   @Input()
-  pokemonSelected!:PokemonListed;
+  pokemonSelected!:Pokemon;
   @Input()
   pokedexOpen!: boolean;
   @Output()
@@ -22,14 +21,10 @@ export class PokedexComponent implements OnInit {
   constructor(private pokemonservice: PokemonService) { }
 
   ngOnInit(): void {
-    this.pokemonservice.getPokemonByName(this.pokemonSelected.name).subscribe(
-      (res) =>{
-        this.pokemonPokedex = (res);
-      },
-      (error) => {
-        console.error(error);
-      }
-    )
+    console.log(this.pokemonSelected.moves);
+    this.pokemonSelected.moves.map((move) => {
+      console.log(move.move.name.replace(/-/g, ' ').toUpperCase());
+    })
   }
 
   closePokedex(e:any){
