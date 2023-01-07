@@ -1,0 +1,16 @@
+:host {
+    .pokemon_for_team_img, .pokemon_for_team_selected_img {
+        border-radius: 100px;
+        cursor: pointer;
+    }
+    .pokemon_for_team_img {
+        border: 2px solid var(--main);
+        background-color: var(--secondary);
+
+    }
+    .pokemon_for_team_selected_img {
+        border: 2px solid var(--main);
+        background-color: var(--main);
+        outline: 2px solid green;
+    }
+}

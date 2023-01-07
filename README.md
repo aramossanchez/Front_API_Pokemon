@@ -3,5 +3,11 @@
 ## Tecnologías utilizadas:
 ### Angular
 
-### ARRANCAR PROYECTO
-## npm start
+## ARRANCAR PROYECTO
+### npm start
+
+## HOME
+
+## POKELIST
+
+## POKETEAM

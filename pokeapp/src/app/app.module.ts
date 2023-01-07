@@ -14,6 +14,8 @@ import { SpinnerComponent } from './components/spinner/spinner.component';
 import { FormsModule } from '@angular/forms';
 import { PokemonCardComponent } from './components/pokemon-card/pokemon-card.component';
 import { YourTeamComponent } from './views/YourTeam/YourTeam.component';
+import { PokemonCardTeamComponent } from './components/pokemon-card-team/pokemon-card-team.component';
+import { PokeTeamComponent } from './components/poke-team/poke-team.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +27,8 @@ import { YourTeamComponent } from './views/YourTeam/YourTeam.component';
     SpinnerComponent,
     PokemonCardComponent,
     YourTeamComponent,
+    PokemonCardTeamComponent,
+    PokeTeamComponent,
   ],
   imports: [
     BrowserModule,

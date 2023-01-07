@@ -1,1 +1,11 @@
-<p>your-team works!</p>
+<div class="main_screen">
+    <div *ngIf="loading">
+        <app-spinner></app-spinner>
+    </div>
+    <app-poke-team></app-poke-team>
+    <div *ngIf="!loading" class="pokemon_list_team">
+        <div *ngFor="let pokemon of pokemonList" class="pokemon_card_list">
+            <app-pokemon-card-team [pokemon]="pokemon"></app-pokemon-card-team>
+        </div>
+    </div>
+</div>

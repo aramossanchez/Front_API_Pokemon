@@ -1,0 +1,18 @@
+:host {
+    .poke_team_container {
+        width: 100%;
+        height: auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+        background-color: green;
+        margin: 20px 0;
+        .pokemon_selected {
+            align-self: center;
+            justify-self: center;
+            width: 150px;
+            height: 200px;
+            background-color: red;
+            border: 1px solid var(--main);
+        }
+    }
+}
